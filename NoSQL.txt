@@ -1,0 +1,8 @@
+Query 1: Find the performers whose salary is greater than 1000
+db.performer.find( {"salary": {$gt: 1000}}  );
+
+Query 2: Find the total employees working in each department
+db.employee.aggregate( { "$group": { _id: "$department", total_employees: { $sum:1} } });
+
+Query 3: Find the total events ordered by each user in descending order
+db.event.aggregate( { "$group": { _id: "$uid", total_events_ordered: { $sum:1} } },{"$sort":{total_events_ordered:-1}});
