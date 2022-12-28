@@ -1,0 +1,28 @@
+
+Query 1: Find event name, event type, event date which is coming in the upcoming days 
+select name, type, date from events where date >= curdate();
+
+Query 2: Find the number of events ordered by each user
+select uid, count(evid) as event_count\'a0 from events group by uid order by count(evid);
+
+Query 3: Find the performer id and performer name of the top three highest salary paid to a performer
+select pid,name, salary from performer p1 where 3>(select count(distinct pid) from performer p2 where p1.salary<p2.salary) order by salary desc;
+
+Query 4: Find the number of guests for each event name and location
+with guest_event as 
+(select evid,count(evid) as guest_count 
+from guestlist group by evid)
+select g.evid, g.guest_count, e.name, v.name 
+from guest_event as g 
+inner join events as e on g.evid=e.evid 
+inner join venue as v on v.vid=e.vid;
+
+Query 6: Find the department id and department name where the count of employees is greater than 10 using exists
+with dpt_employee as
+(select department, count(eid) as employee_count\'a0 from employee group by department)
+SELECT dpid, dpt_name
+FROM department d
+WHERE EXISTS (SELECT department FROM dpt_employee de WHERE d.dpid = de.department AND employee_count > 10); 
+
+Query 7 : Find the names of the premium users who ordered the events
+select p.name, e.uid, e.type from events e, people p, user u where u.ssn=p.ssn and u.uid=e.uid and u.premium='y';
