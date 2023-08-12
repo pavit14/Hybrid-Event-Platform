@@ -1,5 +1,5 @@
 # Hybrid-Event-Platform
-Welcome to the Hybrid Event Platform repository! This project aims to create a desktop-based platform for hosting hybrid events that seamlessly integrate both in-person and virtual components. The platform empowers event organizers to efficiently manage their events while offering attendees an interactive and immersive experience.
+Welcome to the Hybrid Event Platform repository! This project aims to create a desktop-based platform for hosting hybrid events that seamlessly integrate both in-person and virtual components. The platform empowers event organizers to efficiently manage their events while offering attendees an interactive and immersive experience. 
 
 ## Feautres
 * Real-time Database Application: We have meticulously designed a real-time database application using a conceptual model, logical model, and well-defined database architecture. This enables efficient management of the hybrid event platform for various use case scenarios, such as attendee sign-ups, event bookings, and venue reservations.
